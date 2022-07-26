@@ -79,10 +79,8 @@ public:
     }
 };
 
-
-
 /*
-Implementation-1:
+Implementation-2:
 Following Functions are avaible:
 --> void insert(string word)
 --> int countWordsEqualTo(string &word)
@@ -99,7 +97,7 @@ struct Node {
         return (links[ch - 'a'] != NULL);
     }
     
-    Node * get(char ch) {
+    Node *get(char ch) {
         return links[ch - 'a'];
     }
     
@@ -144,8 +142,8 @@ public:
 
     /** Inserts a word into the trie. */
     void insert(string word) {
-        Node * node = root;
-        for (int i = 0; i < word.length(); i++) {
+        Node* node = root;
+        for(int i = 0; i < word.length(); i++) {
             if (!node -> containsKey(word[i])) {
                 node -> put(word[i], new Node());
             }
@@ -169,8 +167,8 @@ public:
     }
 
     /** count the occurance of word that starts with given word in the trie. */
-    int countWordsStartingWith(string & word) {
-        Node * node = root;
+    int countWordsStartingWith(string &word) {
+        Node* node = root;
         for (int i = 0; i < word.length(); i++) {
             if (node -> containsKey(word[i])) {
                 node = node -> get(word[i]);
@@ -182,8 +180,8 @@ public:
     }
 
     /** delete a word from the trie. */
-    void erase(string & word) {
-        Node * node = root;
+    void erase(string &word) {
+        Node* node = root;
         for (int i = 0; i < word.length(); i++) {
             if (node -> containsKey(word[i])) {
                 node = node -> get(word[i]);
